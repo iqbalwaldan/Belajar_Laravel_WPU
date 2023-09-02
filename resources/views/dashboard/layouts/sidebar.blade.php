@@ -7,7 +7,7 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard">
+                    <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard') ? 'active' : '' }}" href="/dashboard">
                         <i class="bi bi-layout-text-window-reverse"></i>
                         Dashboard
                     </a>
@@ -19,6 +19,22 @@
                     </a>
                 </li>
             </ul>
+
+            @can('admin')
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Administrator</span>
+            </h6>
+
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard/categories*') ? 'active' : '' }}"  href="/dashboard/categories">
+                        <i class="bi bi-grid"></i>
+                        Post Categories
+                    </a>
+                </li>
+            </ul>
+            @endcan
+
 
             <hr class="my-3">
 
